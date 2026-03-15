@@ -50,14 +50,16 @@ body {
 }
 
 .hero {
-    padding: 80px 0;
+    padding: 0;
+    /* Removed padding to maximize space for vertical fit */
     background: linear-gradient(180deg,
             #ecfdf5,
             #a7f3d0);
     overflow: hidden;
     border-bottom-left-radius: 80px;
     border-bottom-right-radius: 80px;
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 210px);
+    /* Reduced from 260px to fill the gap at the bottom */
     display: flex;
     align-items: center;
 }
@@ -65,8 +67,8 @@ body {
 .hero-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 100px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .hero-left {
@@ -85,10 +87,11 @@ body {
 }
 
 .hero-left h1 {
-    font-size: 80px;
+    font-size: 72px;
+    /* Slightly reduced from 80px to help vertical fit */
     font-weight: 800;
-    line-height: 1;
-    margin-bottom: 24px;
+    line-height: 1.1;
+    margin-bottom: 20px;
     letter-spacing: -0.04em;
 }
 
@@ -97,10 +100,11 @@ body {
 }
 
 .hero-left p {
-    font-size: 24px;
+    font-size: 20px;
+    /* Reduced from 24px to help vertical fit */
     line-height: 1.5;
     color: #4b5563;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .hero-buttons {
@@ -128,20 +132,22 @@ body {
 .hero-right {
     align-self: flex-end;
     line-height: 0;
-    margin-bottom: -300px;
+    margin-bottom: -320px;
+    /* Pull image deeper to save vertical space */
 }
 
 .hero-right img {
-    width: 420px;
+    width: 550px;
     display: block;
-    transform: translateY(-70px);
+    transform: translateY(-40px);
+    /* Adjusted to keep it from pushing the fold down */
 }
 
 .techstack {
     background: #f9fafb;
     display: flex;
     align-items: center;
-    padding: 40px 0;
+    padding: 50px 0;
 }
 
 .techstack-content {
@@ -196,30 +202,129 @@ body {
 }
 
 .cards-section {
-    text-align: center;
-    padding: 50px 20px;
+    padding: 100px 0 80px 0;
+    /* Reduced top padding to remove excess gap below techstack */
+    background: linear-gradient(180deg, #ecfdf5, #a7f3d0);
+    /* Matches hero section */
 }
 
 .cards-section h1 {
     font-size: 50px;
-    margin-bottom: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    /* Reduced from 20px */
+    text-align: center;
+    letter-spacing: -0.02em;
 }
 
-.cards-section p {
-    font-size: 20px;
-    line-height: 1.6;
-    color: #6b7280;
-    font-weight: 500;
-}
-
-.cards-section span {
+.cards-section h1 span {
     color: #22c55e;
 }
 
-.card-wrapper {
-    position: relative;
-    width: 300px;
-    height: 180px;
+.cards-section p.section-desc {
+    font-size: 19px;
+    line-height: 1.5;
+    color: #6b7280;
+    font-weight: 500;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    /* Reduced from 60px */
+}
+
+.card-container {
+    width: 100%;
     margin: 0 auto;
-    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Reduced gap */
+}
+
+.feature-card {
+    background: white;
+    border-radius: 40px;
+    padding: 0 60px;
+    /* Reduced from 80px to align better with Card 1's visual weight */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card .card-text {
+    flex: 1.2;
+    text-align: left;
+    max-width: 520px;
+}
+
+.feature-card .card-text h2 {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #064e3b;
+    /* Premium green from logo/hero */
+    line-height: 1.15;
+    letter-spacing: 1px;
+}
+
+.feature-card .card-text p {
+    font-size: 18px;
+    color: #6b7280;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.feature-card .card-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    /* Align to the right of the container */
+}
+
+.feature-card .card-image img {
+    width: auto;
+    max-width: 520px;
+    max-height: 420px;
+    /* Reduced from 480px to tighten up the vertical space */
+    display: block;
+    /* Pushing it significantly to the right and top */
+    /* Reduced translateX to move image a little to the left as requested */
+    transform: translateY(-40px) translateX(-20px) scale(1.1);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
+    /* Reduced shadow */
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.feature-card:hover .card-image img {
+    transform: translateY(-50px) translateX(-10px) scale(1.15);
+}
+
+@media (max-width: 991px) {
+    .feature-card {
+        flex-direction: column;
+        padding: 40px;
+        text-align: center;
+    }
+
+    .feature-card .card-text {
+        text-align: center;
+    }
+
+    .feature-card .card-text h2 {
+        font-size: 32px;
+    }
 }
