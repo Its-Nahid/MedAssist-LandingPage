@@ -17,13 +17,31 @@ body {
 }
 
 .navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 1300px;
+
     padding: 20px 0;
+
+    border-radius: 1000px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+
 }
 
 .nav-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 30px;
 }
 
 .logo {
@@ -39,6 +57,17 @@ body {
     font-weight: 500;
 }
 
+.nav-links li {
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.nav-links li:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
 .nav-button {
     background: #22c55e;
     border: 0px;
@@ -49,9 +78,14 @@ body {
     cursor: pointer;
 }
 
+.nav-button:hover {
+    background: rgba(5, 164, 63, 0.8);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
 .hero {
-    padding: 0;
-    /* Removed padding to maximize space for vertical fit */
+    margin-top: 0;
+    padding-top: 270px;
     background: linear-gradient(180deg,
             #ecfdf5,
             #a7f3d0);
@@ -59,7 +93,6 @@ body {
     border-bottom-left-radius: 80px;
     border-bottom-right-radius: 80px;
     min-height: calc(100vh - 210px);
-    /* Reduced from 260px to fill the gap at the bottom */
     display: flex;
     align-items: center;
 }
@@ -73,6 +106,7 @@ body {
 
 .hero-left {
     max-width: 600px;
+    transform: translateY(-70px)
 }
 
 .badge {
@@ -88,7 +122,6 @@ body {
 
 .hero-left h1 {
     font-size: 72px;
-    /* Slightly reduced from 80px to help vertical fit */
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 20px;
@@ -101,7 +134,6 @@ body {
 
 .hero-left p {
     font-size: 20px;
-    /* Reduced from 24px to help vertical fit */
     line-height: 1.5;
     color: #4b5563;
     margin-bottom: 30px;
@@ -133,14 +165,12 @@ body {
     align-self: flex-end;
     line-height: 0;
     margin-bottom: -320px;
-    /* Pull image deeper to save vertical space */
 }
 
 .hero-right img {
     width: 550px;
     display: block;
     transform: translateY(-40px);
-    /* Adjusted to keep it from pushing the fold down */
 }
 
 .techstack {
@@ -203,16 +233,13 @@ body {
 
 .cards-section {
     padding: 100px 0 80px 0;
-    /* Reduced top padding to remove excess gap below techstack */
-    background: linear-gradient(180deg, #ecfdf5, #a7f3d0);
-    /* Matches hero section */
+    background: linear-gradient(180deg, #f9fafb, #ecfdf5);
 }
 
 .cards-section h1 {
     font-size: 50px;
     font-weight: 800;
     margin-bottom: 10px;
-    /* Reduced from 20px */
     text-align: center;
     letter-spacing: -0.02em;
 }
@@ -229,7 +256,6 @@ body {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 40px auto;
-    /* Reduced from 60px */
 }
 
 .card-container {
@@ -238,14 +264,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    /* Reduced gap */
 }
 
 .feature-card {
     background: white;
     border-radius: 40px;
     padding: 0 60px;
-    /* Reduced from 80px to align better with Card 1's visual weight */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -274,7 +298,6 @@ body {
     font-weight: 700;
     margin-bottom: 20px;
     color: #064e3b;
-    /* Premium green from logo/hero */
     line-height: 1.15;
     letter-spacing: 1px;
 }
@@ -292,20 +315,15 @@ body {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    /* Align to the right of the container */
 }
 
 .feature-card .card-image img {
     width: auto;
     max-width: 520px;
     max-height: 420px;
-    /* Reduced from 480px to tighten up the vertical space */
     display: block;
-    /* Pushing it significantly to the right and top */
-    /* Reduced translateX to move image a little to the left as requested */
     transform: translateY(-40px) translateX(-20px) scale(1.1);
     filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
-    /* Reduced shadow */
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
